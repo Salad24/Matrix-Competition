@@ -5,8 +5,9 @@ const socketIo = require('socket.io');
 const app = express();
 const server = http.createServer(app);
 const io = socketIo(server);
+const path = require('path');
 
-app.use(express.static('frontend')); // Serve static files from 'frontend' directory
+app.use(express.static(path.join(__dirname, '../frontend'))); // Serve static files from 'frontend' directory
 
 io.on('connection', (socket) => {
     console.log('A user connected');
