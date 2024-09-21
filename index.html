@@ -8,12 +8,26 @@
 </head>
 <body>
     <h1>RREF Competition</h1>
-    <div id="matrix"></div>
-    <input id="operation" placeholder="Enter operation (e.g., Row 1 * 2)">
-    <button id="submit">Submit</button>
-    <button id="testButton">Test Connection</button>
-    <div id="output"></div>
+
+    <!-- Room creation and joining -->
+    <div id="room-section">
+        <h2>Create or Join a Room</h2>
+        <input id="roomName" placeholder="Enter room name" />
+        <input id="password" type="password" placeholder="Enter room password" />
+        <button id="createRoomBtn">Create Room</button>
+        <button id="joinRoomBtn">Join Room</button>
+    </div>
+
+    <!-- Matrix operations section -->
+    <div id="competition-section" style="display: none;">
+        <h2>Matrix Operations</h2>
+        <div id="matrix"></div>
+        <input id="operation" placeholder="Enter operation (e.g., Row 1 * 2)">
+        <button id="submit">Submit</button>
+        <button id="testButton">Test Connection</button>
+        <div id="output"></div>
+    </div>
+
+    <!-- Socket.io for real-time communication -->
     <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
     <script src="script.js"></script>
-</body>
-</html>

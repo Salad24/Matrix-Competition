@@ -1,14 +1,99 @@
+/* General page styles */
 body {
     font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 20px;
     text-align: center;
 }
 
-#matrix {
-    margin: 20px;
-    font-size: 20px;
+h1 {
+    font-size: 2.5rem;
+    color: #333;
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: #555;
+}
+
+input {
+    font-size: 1rem;
+    padding: 10px;
+    margin: 10px 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 250px;
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Room section styles */
+#room-section {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+#room-section input {
+    width: 200px;
+}
+
+#room-section h2 {
+    color: #333;
+}
+
+/* Competition section styles */
+#competition-section {
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+#competition-section #matrix {
+    font-size: 1.2rem;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    min-height: 100px;
+    border-radius: 5px;
+}
+
+#competition-section input {
+    width: 300px;
 }
 
 #output {
     margin-top: 20px;
-    font-weight: bold;
+    font-size: 1.1rem;
+    color: #333;
+    background-color: #e8f5e9;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #a5d6a7;
+    width: 300px;
+    margin: 20px auto;
+}
+
+#error {
+    color: red;
 }

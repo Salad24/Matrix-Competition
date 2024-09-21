@@ -29,20 +29,68 @@ window.onload = function() {
     }
 };
 
-// Sending operations
-document.getElementById('submit').onclick = function() {
-    const operation = document.getElementById('operation').value;
-    if (operation) {
-        socket.emit('operation', operation);
+// Room creation
+document.getElementById('createRoomBtn').onclick = function() {
+    const roomName = document.getElementById('roomName').value;
+    const password = document.getElementById('password').value;
+    if (roomName && password) {
+        socket.emit('createRoom', { roomName, password });
     } else {
-        console.log('Please enter a valid operation');
+        alert('Please enter a valid room name and password');
     }
 };
 
-// Receiving updates
+// Join an existing room
+document.getElementById('joinRoomBtn').onclick = function() {
+    const roomName = document.getElementById('roomName').value;
+    const password = document.getElementById('password').value;
+    if (roomName && password) {
+        socket.emit('joinRoom', { roomName, password });
+    } else {
+        alert('Please enter a valid room name and password');
+    }
+};
+
+// Handle room creation and joining
+socket.on('roomCreated', (roomName) => {
+    console.log(`Room ${roomName} created successfully`);
+    alert(`Room ${roomName} created!`);
+    showCompetitionSection();
+});
+
+socket.on('roomJoined', (roomName) => {
+    console.log(`Joined room ${roomName}`);
+    alert(`Joined room ${roomName} successfully!`);
+    showCompetitionSection();
+});
+
+// Error handling for room actions
+socket.on('error', (message) => {
+    console.error('Error:', message);
+    alert(message);
+});
+
+// Show the competition section (after room creation/joining)
+function showCompetitionSection() {
+    document.getElementById('room-section').style.display = 'none';
+    document.getElementById('competition-section').style.display = 'block';
+}
+
+// Sending matrix operations
+document.getElementById('submit').onclick = function() {
+    const operation = document.getElementById('operation').value;
+    const roomName = document.getElementById('roomName').value; // Ensure the user is in the right room
+    if (operation && roomName) {
+        socket.emit('operation', { roomName, operation });
+    } else {
+        console.log('Please enter a valid operation and ensure you are in a room');
+    }
+};
+
+// Receiving matrix updates
 socket.on('update', (data) => {
     console.log('Received update:', data);
-    updateDisplay(data); // Update display and store in local storage
+    updateDisplay(data); // Update the display and store it in local storage
 });
 
 // Test button functionality
