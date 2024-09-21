@@ -10,7 +10,7 @@ const server = http.createServer(app);
 // Set up Socket.IO with CORS configuration
 const io = socketIo(server, {
     cors: {
-        origin: "https://salad24.github.io",  // Your GitHub Pages URL
+        origin: "https://salad24.github.io/Matrix-Competition/",  // Your GitHub Pages URL
         methods: ["GET", "POST"],
         credentials: true // Allows sending cookies if needed
     }
@@ -18,7 +18,7 @@ const io = socketIo(server, {
 
 // Apply CORS middleware to Express
 app.use(cors({
-    origin: "https://salad24.github.io",  // Your GitHub Pages URL
+    origin: "https://salad24.github.io/Matrix-Competition/",  // Your GitHub Pages URL
     methods: ["GET", "POST"],
     credentials: true // Allows credentials if needed
 }));
