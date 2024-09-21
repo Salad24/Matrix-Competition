@@ -6,7 +6,7 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server);
 
-app.use(express.static('public')); // Serve static files from 'public' directory
+app.use(express.static('frontend')); // Serve static files from 'frontend' directory
 
 io.on('connection', (socket) => {
     console.log('A user connected');
